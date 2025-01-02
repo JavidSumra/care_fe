@@ -309,18 +309,7 @@ export default function PatientRegistration(
       <hr className="mt-4" />
       <div className="relative mt-4 flex flex-col md:flex-row gap-4">
         <SectionNavigator sections={sidebarItems} className="hidden md:flex" />
-        <form
-          className="md:w-[500px]"
-          onSubmit={handleFormSubmit}
-          onKeyDown={(e) => {
-            if (
-              e.key === "Enter" &&
-              !(e.target instanceof HTMLTextAreaElement)
-            ) {
-              handleFormSubmit(e);
-            }
-          }}
-        >
+        <form className="md:w-[500px]" onSubmit={handleFormSubmit}>
           <div id={"general-info"}>
             <h2 className="text-lg font-semibold">
               {t("patient__general-info")}
@@ -769,7 +758,11 @@ export default function PatientRegistration(
             <br />
           </div> */}
           <div className="flex justify-end mt-20 gap-4">
-            <Button variant={"secondary"} onClick={() => goBack()}>
+            <Button
+              variant={"secondary"}
+              type="button"
+              onClick={() => goBack()}
+            >
               {t("cancel")}
             </Button>
             <Button
